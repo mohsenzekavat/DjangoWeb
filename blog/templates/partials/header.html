@@ -1,0 +1,27 @@
+<header class="site-header">
+    {# Optional: Add a site title/logo here if you wish, e.g.: #}
+    {# <h1><a href="{% url 'blog:post_list' %}" style="color: white; text-decoration: none;">My Blog</a></h1> #}
+
+    <form method="get" action="{% url 'blog:post_search' %}">
+        <input type="text" name="query" required placeholder="Search">
+        <input type="submit" value="Search">
+    </form>
+
+    <div class="header-auth-section"> {# This div helps with layout for user/login/logout links #}
+        {% if request.user.is_authenticated %}
+            <p><a href="{% url 'blog:profile' %}">{{ request.user.first_name|default:request.user.username }}</a></p>
+            {# Correct form-based logout #}
+            <form id="logout-form" action="{% url 'blog:logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; color: inherit; text-decoration: underline;">
+                    Logout
+                </button>
+            </form>
+        {% else %}
+            <p><a href="{%  url 'blog:login' %}">Login</a></p>
+            <p><a href="{%  url 'blog:register' %}">Register</a></p>
+        {% endif %}
+    </div>
+    {# Removed the <br> from the original header.html as it's not needed with flexbox layout #}
+</header>
+

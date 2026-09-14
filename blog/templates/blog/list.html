@@ -1,0 +1,31 @@
+{% extends 'parent/base.html' %}
+{% block title %}post list{% endblock %}
+{% block content %}
+
+    {% if category %}
+        <h1>Posts in "{{ category }}"</h1>
+    {% else %}
+        <h1>All Posts</h1>
+    {% endif %}
+
+    {# Removed inline style, CSS will handle --length via JS if needed, or just general list styling #}
+    <ol role="list">
+        {% for post in posts %}
+            {# Removed inline style, CSS will handle --i via JS if needed, or just general list item styling #}
+            <li>
+                <h3>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </h3>
+                <p>{{ post.description | truncatewords:5 }}</p>
+                {# Removed inline width, let CSS handle it #}
+                <img src="{{ post.images.first.image_file.url }}" alt="{{ post.images.first.title }}">
+            </li>
+        {% endfor %}
+    </ol>
+
+
+{#    {% include "partials/pagination.html" with page=page_obj%}#}
+    {% include "partials/pagination.html" with page=posts%}
+    <br>
+    <h1><a href="{% url 'blog:create_post' %}">Create Your Post</a></h1>
+{% endblock %}

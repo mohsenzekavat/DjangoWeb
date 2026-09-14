@@ -1,0 +1,9 @@
+<nav class="site-navigation">
+    {# Assuming your navigation.html contains a <ul> with <li><a> #}
+    <ul>
+        <li><a href="{% url 'blog:post_list' %}">All Posts</a></li>
+        <li><a href="{% url 'blog:create_post' %}">New Post</a></li>
+        <li><a href="{% url 'blog:ticket' %}">Contact</a></li> {# Example link, adjust as per your URLs #}
+        {# Add other navigation links as needed #}
+    </ul>
+</nav>

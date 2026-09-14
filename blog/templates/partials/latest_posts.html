@@ -1,0 +1,6 @@
+<div class="latest-posts-section"> {# Added a class for styling this section #}
+    <h2>Latest Posts: </h2>
+    {% for post in l_posts%}
+        <p><a href="{{ post.get_absolute_url }}">{{ post.title }}:  {{ post.publish|date:"Y/n/j - H:i" }}</a></p>
+    {% endfor %}
+</div>

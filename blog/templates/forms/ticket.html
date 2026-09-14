@@ -1,0 +1,52 @@
+{% extends 'parent/base.html' %}
+{% block title %}ticket form{% endblock %}
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+        <br>
+        <label for="id_name">Name:</label>
+        <input type="text" name="name" id="id_name" required placeholder="Name"
+                {% if form.name.value %} value="{{ form.name.value }}" {% endif %}>
+        <span>{{ form.name.errors }}</span>
+        <br>
+        <br>
+        <label for="id_email">Email:</label>
+        <input type="email" name="email" id="id_email" placeholder="Email"
+                {% if form.email.value %} value="{{ form.email.value }}" {% endif %}>
+        <span>{{ form.email.errors }}</span>
+        <br>
+        <br>
+        <label for="id_phone">Phone:</label>
+        <input type="tel" name="phone" id="id_phone" required maxlength="11" placeholder="Phone" {# Changed type to tel #}
+                {% if form.phone.value %} value="{{ form.phone.value }}" {% endif %}>
+        <span>{{ form.phone.errors }}</span>
+        <br>
+        <br>
+        <label for="id_message">Message:</label>
+        <textarea name="message" id="id_message" rows="10" cols="100">{% if form.message.value %}{{ form.message.value }}{% endif %}</textarea>
+        <span>{{ form.message.errors }}</span>
+        <br>
+        <br>
+        <label for="id_subject">Subject:</label>
+        <select name="subject" id="id_subject">
+            <option value="SUGGESTIONS"
+            {% if form.subject.value == "SUGGESTIONS" %} selected {% endif %}>Suggestions</option>
+            <option value="CRITICISM"
+            {% if form.subject.value == "CRITICISM" %} selected {% endif %}>Criticism</option>
+            <option value="REPORT"
+            {% if form.subject.value == "REPORT" %} selected {% endif %}>Report</option>
+        </select>
+        <br>
+        <br>
+    <input type="submit" value="Submit Ticket">
+    </form>
+    <br>
+    <br>
+    {% if form.non_field_errors %}
+        <div class="messages error"> {# Using messages class for non-field errors #}
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

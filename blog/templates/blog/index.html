@@ -1,0 +1,38 @@
+{% extends 'parent/base.html' %}
+{% load blog_tags %}
+{% block title %}index{% endblock %}
+{% block content %}
+    <h2>Website Statistics: </h2>
+    <p>Number of Posts: {% total_posts %}</p>
+    <p>Number of Comments: {% total_comments %}</p>
+    <p>Last Post Date: {% last_post_date %}</p>
+
+
+    {% latest_posts 5 %}
+
+    <h2>Most Popular Users</h2>
+    {% most_popular_users as pop_users%}
+    {% for user in pop_users %}
+    	<p>{{ user.username }} with {{ user.posts_count }}</p>
+    {% endfor %}
+
+
+    <h2>Most Popular Posts:</h2>
+    {% most_popular_posts as pop_posts %}
+    {% for post in pop_posts %}
+        <p><a href="{{ post.get_absolute_url }}">{{ post.title }} with {{ post.comments_count }} comments</a></p>
+    {% endfor %}
+
+    <h2>Posts With The Most Reading Time:</h2>
+    {% most_reading_time as long_posts %}
+    {% for post in long_posts %}
+        <p><a href="{{ post.get_absolute_url }}">{{ post.title }} with {{ post.reading_time }} minutes</a></p>
+    {% endfor %}
+
+    <h2>Posts With The Least Reading Time:</h2>
+    {% least_reading_time as short_posts %}
+    {% for post in short_posts %}
+        <p><a href="{{ post.get_absolute_url }}">{{ post.title }} with {{ post.reading_time }} minutes</a></p>
+    {% endfor %}
+
+{% endblock %}

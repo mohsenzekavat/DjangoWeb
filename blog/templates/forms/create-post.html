@@ -1,0 +1,38 @@
+{% extends 'parent/base.html' %}
+{% block title %}create post{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if post %}
+            <div class="post-images-grid"> {# Added a grid for existing images #}
+                {% for image in post.images.all %}
+                    <div>
+                        {# Removed inline width/height, let CSS handle it #}
+                        <img src="{{ image.image_file.url }}" alt="{{ image.title }}">
+                        <a href="{% url 'blog:delete_image' image.id %}">Delete image</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if form.errors %}
+        <div class="messages error"> {# Using messages class for form errors #}
+            <p>Please handle these errors!</p>
+            {% for field in form %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p>{{ field.label }} : {{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

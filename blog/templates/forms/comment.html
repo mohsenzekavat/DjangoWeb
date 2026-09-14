@@ -1,0 +1,16 @@
+{% extends 'parent/base.html' %}
+{% block title %}post comment{% endblock %}
+{% block content %}
+
+    {% if comment %}
+        Your comment was submitted.
+        <a href="{{ post.get_absolute_url }}">Back to Post.</a>
+    {% else %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Comment">
+    </form>
+    {% endif %}
+
+{% endblock %}

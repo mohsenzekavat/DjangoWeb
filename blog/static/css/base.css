@@ -1,0 +1,678 @@
+/* --- Global Resets & Base Styles (Dark Theme) --- */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a2e; /* Deep dark blue background */
+    color: #e0e0e0; /* Light grey for general text */
+    line-height: 1.7;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    direction: ltr; /* Default direction for the entire page */
+}
+
+/* --- Layout & Main Content Container (Full Page Width) --- */
+.main-content-wrapper {
+    max-width: 100%; /* Use full available width */
+    margin: 0 auto; /* No top/bottom margin, fills vertical space */
+    padding: 30px 5%; /* Horizontal padding to prevent content from touching edges */
+    background-color: #1a1a2e; /* Match body background for full-page effect */
+    border-radius: 0; /* No rounded corners for full page */
+    box-shadow: none; /* No shadow needed for full-page background */
+    flex-grow: 1;
+    box-sizing: border-box;
+    direction: ltr; /* Ensure LTR direction for main content area */
+    text-align: left; /* Default text alignment for main content */
+}
+
+/* --- Header Styles (Dark Theme) --- */
+.site-header {
+    background-color: #0f3460; /* Darker blue for header */
+    color: #fff;
+    padding: 20px 5%; /* Match horizontal padding of main content */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; /* Ensures vertical alignment of items in header */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.site-header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-header h1 a:hover {
+    color: #a0a0a0; /* Lighter grey on hover */
+}
+
+/* Header Search Form */
+.site-header form {
+    display: flex; /* Use flexbox for precise alignment */
+    align-items: center; /* Vertically aligns search input and button */
+    gap: 10px;
+    margin-top: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.site-header form input[type="text"],
+.site-header form input[type="submit"] {
+    height: 42px; /* Set a consistent height for both input and button */
+    margin: 0; /* Remove any default margins that might cause misalignment */
+    vertical-align: middle; /* Ensures elements align to the middle */
+    box-sizing: border-box; /* Crucial for consistent sizing */
+    line-height: 1.2; /* Adjust line-height if needed for text centering */
+}
+
+.site-header form input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #3e5c76;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    transition: all 0.3s ease;
+    flex-grow: 1; /* Allow input to grow and fill space */
+    min-width: 150px; /* Ensure it doesn't get too small */
+}
+
+.site-header form input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.site-header form input[type="text"]:focus {
+    border-color: #6a8d9f;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 0.2rem rgba(106, 141, 159, 0.25);
+}
+
+.site-header form input[type="submit"] {
+    background-color: #e94560;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.site-header form input[type="submit"]:hover {
+    background-color: #d82c47;
+    transform: translateY(-1px);
+}
+
+/* Header User Info / Login-Logout Links */
+.header-auth-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 0;
+}
+
+.header-auth-section p {
+    margin: 0;
+}
+
+.header-auth-section a {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-auth-section a:hover {
+    color: #a0a0a0;
+    text-decoration: underline;
+}
+
+/* --- Navigation Styles (Dark Theme) --- */
+.site-navigation {
+    background-color: #0f3460; /* Match header background */
+    padding: 12px 5%; /* Match horizontal padding of main content */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid #1a1a2e; /* Subtle separator */
+    border-bottom: 1px solid #1a1a2e; /* Subtle separator */
+}
+
+.site-navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.site-navigation a {
+    color: #e0e0e0; /* Light text for navigation */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.site-navigation a:hover {
+    color: #e94560; /* Highlight with vibrant red on hover */
+    transform: translateY(-2px);
+}
+
+/* --- Footer Styles (Dark Theme) --- */
+.site-footer {
+    background-color: #0f3460; /* Match header/nav background */
+    color: #e0e0e0;
+    text-align: center;
+    padding: 25px 5%; /* Match horizontal padding */
+    margin-top: auto;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* --- Typography (Dark Theme - More Colorful Text) --- */
+h1, h2, h3, h4, h5, h6 {
+    color: #e94560; /* Vibrant red for headings */
+    margin-bottom: 18px;
+    margin-top: 30px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Stronger text shadow for dark theme */
+    text-align: left; /* Ensure headings are LTR */
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.7rem; }
+
+p {
+    margin-bottom: 12px;
+    color: #c0c0c0; /* Lighter grey for paragraph text */
+    text-align: left; /* Ensure paragraphs are LTR */
+}
+
+a {
+    color: #e94560; /* Vibrant red for general links */
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: #d82c47; /* Darker red on hover */
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #2e3a59; /* Darker, subtle separator */
+    margin: 25px 0;
+}
+
+/* --- Forms (General - Dark Theme) --- */
+form {
+    margin-top: 25px;
+    padding: 25px;
+    border: 1px solid #2e3a59; /* Darker border */
+    border-radius: 12px;
+    background-color: #0f3460; /* Darker background for forms */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    text-align: left; /* Ensure form content is LTR */
+}
+
+form p {
+    margin-bottom: 18px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #e0e0e0; /* Light label text */
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #3e5c76; /* Darker border */
+    border-radius: 8px;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    background-color: #1a1a2e; /* Match body background for inputs */
+    color: #e0e0e0; /* Light text in inputs */
+    transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #e94560; /* Vibrant red focus border */
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(233, 69, 96, 0.25); /* Vibrant red glow on focus */
+    background-color: #0f3460; /* Darker background on focus */
+}
+
+form button[type="submit"],
+form input[type="submit"],
+.button-primary {
+    background-color: #e94560; /* Vibrant red submit button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(233, 69, 96, 0.3); /* Vibrant red shadow */
+}
+
+form button[type="submit"]:hover,
+form input[type="submit"]:hover,
+.button-primary:hover {
+    background-color: #d82c47;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(233, 69, 96, 0.4);
+}
+
+/* Error messages for form fields */
+form span.errorlist,
+form span {
+    color: #ff6b6b; /* Brighter red for errors */
+    font-size: 0.9em;
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* --- Images (Dark Theme) --- */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for dark theme */
+}
+
+/* Specific image styling for detail.html and create-post.html */
+.post-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.post-images-grid img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow for grid images */
+}
+
+/* --- Lists (Dark Theme) --- */
+ul {
+    list-style: none;
+}
+
+ol {
+    list-style: decimal;
+    padding-left: 25px;
+}
+
+/* Post list specific styling (list.html) */
+ol[role="list"] {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit columns, min 300px wide */
+    gap: 30px; /* Space between post cards */
+    /* NEW: Explicitly align the grid content itself to the start */
+    justify-content: start;
+    /* NEW: Ensure the grid container takes full available width */
+    width: 100%;
+    /* NEW: Remove any auto margins that might be centering it */
+    margin-left: 0;
+    margin-right: auto;
+}
+
+ol[role="list"] li {
+    background-color: #0f3460; /* Darker background for list items */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align list item content to the left */
+    text-align: left; /* Text alignment for list items */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%; /* Make all cards in a row the same height */
+}
+
+ol[role="list"] li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+ol[role="list"] li h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #e94560; /* Vibrant red for post titles in list */
+    text-align: left; /* Ensure heading in list item is LTR */
+}
+
+ol[role="list"] li p {
+    color: #c0c0c0;
+    text-align: left; /* Ensure paragraph in list item is LTR */
+}
+
+ol[role="list"] li img {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
+    object-fit: cover;
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-radius: 10px;
+}
+
+/* Comments section (detail.html - Dark Theme) */
+.comments-section {
+    margin-top: 40px;
+    border-top: 1px solid #2e3a59;
+    padding-top: 25px;
+    direction: ltr; /* Explicitly set LTR direction for comments section */
+    text-align: left; /* Align comments section text to the left */
+}
+
+.comments-section h2 {
+    margin-bottom: 25px;
+    color: #e94560;
+    text-align: left; /* Ensure heading in comments section is LTR */
+}
+
+.comment-item {
+    background-color: #0f3460;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Align individual comment text to the left */
+}
+
+.comment-item strong {
+    color: #e0e0e0;
+    font-size: 1.15em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.comment-item p {
+    margin-bottom: 0;
+    color: #c0c0c0;
+}
+
+
+/* --- Table Styles (Dark Theme - Better Tables) --- */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 30px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    direction: rtl; /* Keep RTL direction for tables */
+    text-align: right; /* Keep text alignment right for tables */
+    border: 1px solid #2e3a59;
+}
+
+th, td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #1a1a2e;
+    text-align: right; /* Keep table cell text alignment right */
+}
+
+th {
+    background-color: #0f3460;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+/* Rounded corners for table headers */
+th:first-child { border-top-right-radius: 12px; }
+th:last-child { border-top-left-radius: 12px; }
+
+/* Zebra striping */
+tr:nth-child(even) {
+    background-color: #1a1a2e;
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #2e3a59;
+    transition: background-color 0.3s ease;
+}
+
+/* Remove bottom border from the last row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Logout Button (Form-based - Dark Theme) --- */
+#logout-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#logout-form button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #ff6b6b;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#logout-form button:hover {
+    color: #ff4757;
+    text-decoration: underline;
+}
+
+/* --- Django Messages (Dark Theme) --- */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.messages li {
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: left; /* Align messages to the left */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.messages .success {
+    background-color: #28a745;
+    color: #fff;
+    border: 1px solid #218838;
+}
+
+.messages .error {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #c82333;
+}
+
+.messages .info {
+    background-color: #17a2b8;
+    color: #fff;
+    border: 1px solid #138496;
+}
+
+.messages .warning {
+    background-color: #ffc107;
+    color: #343a40;
+    border: 1px solid #e0a800;
+}
+
+/* --- Pagination (Dark Theme) --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    gap: 12px;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid #2e3a59;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #e94560;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination a:hover {
+    background-color: #0f3460;
+    color: #ff6b6b;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.pagination .current {
+    background-color: #e94560;
+    color: white;
+    border-color: #e94560;
+    font-weight: bold;
+    cursor: default;
+    box-shadow: 0 4px 10px rgba(233, 69, 96, 0.3);
+}
+
+/* --- Responsive Adjustments (Dark Theme) --- */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        padding: 20px 3%;
+    }
+
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start; /* Align header items to left on small screens */
+        text-align: left;
+        padding: 15px 3%;
+    }
+
+    .site-header h1 {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+        font-size: 2rem;
+    }
+
+    .site-header form {
+        width: 100%;
+        justify-content: flex-start; /* Align search to left */
+        margin-top: 10px;
+    }
+
+    .header-auth-section {
+        width: 100%;
+        justify-content: flex-start; /* Align auth section to left */
+        margin-top: 10px;
+    }
+
+    .site-navigation ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: flex-start; /* Align nav links to left */
+        margin-top: 10px;
+    }
+
+    /* Table responsiveness */
+    table {
+        border-radius: 8px;
+    }
+
+    th:first-child { border-top-right-radius: 8px; }
+    th:last-child { border-top-left-radius: 8px; }
+
+    /* Post list specific styling (list.html) */
+    ol[role="list"] {
+        grid-template-columns: 1fr; /* Stack posts on small screens */
+        justify-content: center; /* Center single column items on small screens */
+        margin-left: auto; /* Re-center for single column */
+        margin-right: auto; /* Re-center for single column */
+    }
+
+    ol[role="list"] li {
+        align-items: flex-start;
+        text-align: left;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .post-images-grid {
+        gap: 15px;
+    }
+
+    .post-images-grid img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.4rem; }
+
+    form {
+        padding: 20px;
+    }
+}
